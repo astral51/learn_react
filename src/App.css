@@ -10,21 +10,3 @@
 	width: 1200px;
 	margin: 0 auto;
 }
-.header{
-	grid-area: h;
-	background-color: rgb(155, 155, 255);
-}
-.header img{
-	width: 60px;
-}
-.nav{
-	grid-area: n;
-	background-color: rgb(161, 161, 190);
-}
-.content{
-	grid-area: c;
-	background-color: rgb(101, 245, 190);
-}
-.content img{
-	width: 500px;
-}
