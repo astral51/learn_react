@@ -2,6 +2,6 @@
 	color:red;
 }
 .item img{
-	width: 50px;
-	border-radius: 30px;
+	max-width: 50px;
+	border-radius: 1000px;
 }
