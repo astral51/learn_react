@@ -1,20 +1,56 @@
 .dialogs{
 	display: grid;
-	grid-template-columns: 2fr 10fr;
+	grid-template-columns: 3fr 9fr;
 }
+
 .dialogs_items{
-	padding: 20px;
-}
-.dialogs_items .active{
-	color: gold;
+	margin: 10px 20px;
 }
 .dialog{
-	color: white;
+	margin: 10px 0;
 }
+
+.dialog a{
+	color:aliceblue;
+	display: block;
+	text-decoration: none;
+	background-color: rgb(166, 183, 250);
+	border-radius: 25px 10px 10px 25px;
+}
+.dialog a:hover{
+	background-color: rgb(150, 169, 246);
+}
+.dialog a.active{
+	background-color: rgb(101, 99, 239);
+	/* background-color: rgb(129, 153, 250); */
+	color: gold;
+}
+.dialog a img{
+	width: 50px;
+}
+.dialog a div.dialog_link_wrapper{
+	display: grid;
+	grid-template-columns: 4fr 8fr;
+}
+.dialog a div.dialog_name{
+	padding: 12px 0px;
+}
+
 
 .messages{
+	margin: 20px;
+	background-color: rgb(166, 183, 250);
+	border-radius: 25px;
 	padding: 20px;
 }
+.message_wrapper{
+	display: block;
+}
 .message{
-
+	border-radius: 10px;
+	background-color: rgb(60, 71, 115);
+	color:aliceblue;
+	padding: 10px;
+	margin-bottom: 10px;
+	width: max-content;
 }

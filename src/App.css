@@ -4,13 +4,18 @@
 	"h h"
 	"n c"
 	;
-	grid-template-rows: 60px 1fr;
+	grid-template-rows: 100px 1fr;
 	grid-template-columns: 2fr 10fr;
 	/* grid-gap: 10px; */
 	width: 1200px;
 	margin: 0 auto;
+	/* background-color:rgb(129, 133, 255); */
 }
 .app-wrapper-content{
 	grid-area: c;
 	background-color: rgb(129, 133, 255);
+}
+.block-wrapper{
+	border-radius: 30px;
+	margin: 5px;
 }

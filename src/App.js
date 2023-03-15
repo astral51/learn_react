@@ -14,7 +14,7 @@ function App(props) {
 			<div className='app-wrapper'>
 				<Header />
 				<Nav />
-				<div className='app-wrapper-content'>
+				<div className='app-wrapper-content block-wrapper'>
 					<Routes>
 						<Route path="/dialogs/*" 
 							element={<Dialogs 
