@@ -8,13 +8,14 @@ const MyPosts = (props) => {
 			message={elem.message}
 			likes_count={elem.likes_count}
 		/>
-	);
+	).reverse();
 
 	let newPostElement = React.createRef();
 
 	let addPost = () =>{
 		let text = newPostElement.current.value;
-		alert(text);
+		props.addPost(text);
+		newPostElement.current.value = '';
 	};
 
 	return (
