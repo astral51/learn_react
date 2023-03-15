@@ -18,6 +18,12 @@ let state = {
 			{id: 1, message: 'Hi'},
 			{id: 2, message: 'how are u?'},
 			{id: 3, message: 'i hope u are okey'},
+			// {id: 4, message: 'i hope u are okey'},
+			// {id: 5, message: 'i hope u are okey'},
+			// {id: 6, message: 'i hope u are okey'},
+			// {id: 7, message: 'i hope u are okey'},
+			// {id: 8, message: 'i hope u are okey'},
+			// {id: 9, message: 'i hope u are okey'},
 		],
 	},
 };

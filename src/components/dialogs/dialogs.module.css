@@ -37,14 +37,14 @@
 }
 
 
-.messages{
+.messages_wrapper{
 	margin: 20px;
 	background-color: rgb(166, 183, 250);
 	border-radius: 25px;
 	padding: 20px;
 }
-.message_wrapper{
-	display: block;
+.messages{
+	min-height: 300px;
 }
 .message{
 	border-radius: 10px;
@@ -53,4 +53,37 @@
 	padding: 10px;
 	margin-bottom: 10px;
 	width: max-content;
+}
+
+.new_message_wrapper{
+	/* background-color: azure; */
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: 11fr 1fr;
+}
+.new_message_textarea{
+	background-color: white;
+	resize: none;
+	border: none;
+	width: 100%;
+	border-radius: 10px;
+	font-size: 16px;
+	display: block;
+}
+.new_message_textarea:focus{
+	border: none;
+}
+.send_new_message_button{
+	color: white;
+	margin-left: 20px;
+	border: none;
+	background-color: rgb(60, 71, 115);
+	border-radius: 10px;
+	font-size: 16px;
+}
+.send_new_message_button:hover{
+	background-color: rgb(69, 81, 130);
+}
+.send_new_message_button:active{
+	background-color: rgb(50, 61, 96);
 }
