@@ -1,15 +1,22 @@
 
-.post_wrapper{
+.post{
 	background-color: rgb(166, 183, 250);
 	border-radius: 25px;
 	padding: 10px;
 	margin: 20px 0;
 }
 
-.post_wrapper img{
+.avatar img{
 	max-width: 50px;
 	border-radius: 1000px;
 }
+
+.message{
+	background-color: white;
+	padding: 10px;
+	border-radius: 10px;
+}
+
 .likes{
 	color: aliceblue;
 	background-color: rgb(60, 71, 115);

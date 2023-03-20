@@ -17,9 +17,11 @@ const Dialogs = (props) => {
 
 	return (
 		<div className={s.dialogs}>
+		
 			<div className={s.dialogs_items}>
 				{dialogsElements}
 			</div>
+
 			<div className={s.messages_wrapper}>
 				<div className={s.messages}>
 					{messagesElements}
@@ -31,6 +33,7 @@ const Dialogs = (props) => {
 						<button className={s.send_new_message_button} onClick={createNewMessage}>send</button>
 				</div>
 			</div>
+
 		</div>
 	);
 }

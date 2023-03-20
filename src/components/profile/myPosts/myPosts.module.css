@@ -4,3 +4,51 @@
 .posts{
 	margin-top: 10px;
 }
+
+.separator{
+	margin: 0 20px;
+	border: 1px solid rgb(166, 183, 250);
+}
+.new_post_wrapper{
+	/* background-color: azure; */
+	margin: 20px 0;
+	padding: 20px;
+	border-radius: 20px;
+	display: grid;
+	background-color: rgb(166, 183, 250);
+}
+.add_new_post_title{
+	padding-bottom: 20px;
+	/* background-color: tomato; */
+}
+.new_add_post_wrapper{
+	display: grid;
+	grid-template-columns: 10fr 2fr;
+}
+.new_post_textarea{
+	background-color: white;
+	resize: none;
+	border: none;
+	width: 100%;
+	border-radius: 10px;
+	font-size: 16px;
+	display: block;
+}
+.new_post_textarea:focus{
+	border: none;
+}
+.send_new_post_button{
+	color: white;
+	margin-left: 20px;
+	border: none;
+	background-color: rgb(60, 71, 115);
+	border-radius: 10px;
+	font-size: 16px;
+	height: 100%;
+}
+.send_new_post_button:hover{
+	background-color: rgb(69, 81, 130);
+}
+.send_new_post_button:active{
+	background-color: rgb(50, 61, 96);
+}

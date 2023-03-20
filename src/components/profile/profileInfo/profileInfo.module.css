@@ -3,3 +3,7 @@
 .description_block{
 	padding: 10px;
 }
+
+.background_img img{
+	border-radius: 25px 0 0 0;
+}
