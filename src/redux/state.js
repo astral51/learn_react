@@ -1,8 +1,7 @@
+import dialogsReducer from "./dialogs_reducer";
+import profileReducer from "./profile_reducer";
+import sidebarReducer from "./sidebar_reducer";
 
-const ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
-const SEND_MESSAGE = 'SEND_MESSAGE';
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 
 let store = {
 
@@ -29,6 +28,9 @@ let store = {
 			],
 			newMessageBody: '',
 		},
+		sidebar: {
+			
+		},
 	},
 	_callSubscriber(){
 		console.log('state was changed');
@@ -43,51 +45,15 @@ let store = {
 	},
 	
 	dispatch(action){
-		if (action.type === ADD_POST){
-			let newPost = {
-				id: 4,
-				message: this._state.profilePage.newPostText,
-				likes_count: 0,
-			};
-			this._state.profilePage.posts.push(newPost);
-			this._state.profilePage.newPostText = '';
-			this._callSubscriber(this._state);
-		}
-		else if (action.type === UPDATE_NEW_POST_TEXT){
-			this._state.profilePage.newPostText = action.newText;
-			this._callSubscriber(this._state);
-		}
-		else if (action.type === UPDATE_NEW_MESSAGE_BODY){
-			this._state.dialogsPage.newMessageBody = action.newText;
-			this._callSubscriber(this._state);
-		}
-		else if (action.type === SEND_MESSAGE){
-			let newMessage = {
-				id: 4,
-				message: this._state.dialogsPage.newMessageBody, 
-			}
-			this._state.dialogsPage.messages.push(newMessage);
-			this._state.dialogsPage.newMessageBody = '';
-			this._callSubscriber(this._state);	
-		}
+		this._state.profilePage = profileReducer(this._state.profilePage, action);
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+		this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+
+		this._callSubscriber(this._state);
 	},
 
 };
 
-export const addPostActionCreator = () => ({
-		type: ADD_POST,
-});
-export const updateNewPostTextActionCreator = (text) => ({
-		type: UPDATE_NEW_POST_TEXT,
-		newText: text,
-});
-export const sendMessageCreator = () => ({
-	type: SEND_MESSAGE,
-});
-export const updateNewMessageBodyCreator = (text) => ({
-	type: UPDATE_NEW_MESSAGE_BODY,
-	newText: text,
-});
 
 
 export default store;
