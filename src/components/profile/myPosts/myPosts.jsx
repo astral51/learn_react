@@ -12,7 +12,7 @@ const MyPosts = (props) => {
 		/>
 	).reverse();
 
-	let newPostElement = props.newPostsText;
+	let newPostElement = props.newPostText;
 
 	let onAddPost = () => {
 		props.addPost();
