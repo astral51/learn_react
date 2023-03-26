@@ -14,7 +14,6 @@ const MyPosts = (props) => {
 	).reverse();
 
 	let newPostElement = React.createRef();
-
 	let addPost = () => {
 		props.dispatch(addPostActionCreator());
 	};

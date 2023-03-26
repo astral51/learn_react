@@ -16,7 +16,6 @@ const Dialogs = (props) => {
 		let text = event.target.value;
 		props.dispatch(updateNewMessageBodyCreator(text));
 	}
-
 	const onSendMessageClick = () => {
 		props.dispatch(sendMessageCreator());
 		// alert(text);
