@@ -9,13 +9,12 @@ import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let rerenderEntireTree = (state) => {
+let rerenderEntireTree = () => {
 	root.render(
 		<React.StrictMode>
 			<BrowserRouter>
-				<App 
-					state={state} 
-					dispatch={store.dispatch.bind(store)}
+				<App
+					store={store}
 				/>
 			</BrowserRouter>
 		</React.StrictMode>
@@ -23,11 +22,10 @@ let rerenderEntireTree = (state) => {
 };
 
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree();
 
 store.subscribe(() => {
-	let state = store.getState();
-	rerenderEntireTree(state);
+	rerenderEntireTree();
 });
 
 reportWebVitals();

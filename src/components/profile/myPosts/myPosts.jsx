@@ -12,14 +12,14 @@ const MyPosts = (props) => {
 		/>
 	).reverse();
 
-	let newPostElement = React.createRef();
+	let newPostElement = props.newPostsText;
 
 	let onAddPost = () => {
 		props.addPost();
 	};
 
-	let onPostChange = () => {
-		let text = newPostElement.current.value;
+	let onPostChange = (event) => {
+		let text = event.target.value;
 		props.updateNewPostText(text);
 	};
 
@@ -37,8 +37,7 @@ const MyPosts = (props) => {
 					<div>
 						<textarea className={s.new_post_textarea}
 							onChange={onPostChange}
-							ref={newPostElement}
-							value={props.newPostText}
+							value={newPostElement}
 						/>
 					</div>
 					<div>
