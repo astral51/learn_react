@@ -4,16 +4,10 @@ const SET_USERS = 'SET_USERS';
 
 
 let initialState = {
-	users: [
-		// {id: 1, photoUrl: 'https://abrakadabra.fun/uploads/posts/2021-12/1640528610_2-abrakadabra-fun-p-serii-chelovek-na-avu-2.jpg',
-		// 	followed: true, fullName: 'Dmitry', status: 'im a boss', location: {city: 'Moscow', country: 'Russia'}},
-		// {id: 2, photoUrl: 'https://abrakadabra.fun/uploads/posts/2021-12/1640528610_2-abrakadabra-fun-p-serii-chelovek-na-avu-2.jpg',
-		// 	followed: false, fullName: 'Tamara', status: 'im learn python', location: {city: 'Saint-Petersburg', country: 'Russia'}},
-		// {id: 3, photoUrl: 'https://abrakadabra.fun/uploads/posts/2021-12/1640528610_2-abrakadabra-fun-p-serii-chelovek-na-avu-2.jpg',
-		// 	followed: false, fullName: 'Chief Keef', status: 'i like lovv66', location: {city: 'Florida', country: 'Usa'}},
-		// {id: 4, photoUrl: 'https://abrakadabra.fun/uploads/posts/2021-12/1640528610_2-abrakadabra-fun-p-serii-chelovek-na-avu-2.jpg',
-		// 	followed: true, fullName: 'Anatoly', status: 'this is my status', location: {city: 'Apatity', country: 'Russia'}},
-	],
+	users: [],
+	pageSize: 5,
+	totalUsersCount: 20,
+	currentPage: 1,
 };
 
 const usersReducer = (state = initialState, action) => {
