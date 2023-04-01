@@ -1,9 +1,66 @@
 
-
+.separator{
+	margin: 20px 20px;
+	border: 1px solid rgb(166, 183, 250);
+}
 .description_block{
-	padding: 10px;
+	padding: 20px;
+	border-radius: 20px 20px 0 0;
+	background-color: rgb(166, 183, 250);
 }
 
-.background_img img{
-	border-radius: 25px 0 0 0;
+.photo_and_description_block{
+	display: grid;
+	grid-template-columns: 3fr 9fr;
+}
+.photo img{
+	border-radius: 25px;
+	width: 200px;
+}
+.description{
+	background-color: white;
+	border-radius: 20px;
+	padding: 20px;
+}
+.full_name{
+	font-size: 20px;
+	font-weight: bold;
+}
+.looking_for_a_job_status_true{
+	color: darkgreen;
+	font-weight: bold;
+	background-color: lightgreen;
+	border: 2px solid darkgreen;
+	width: fit-content;
+	padding: 5px;
+	border-radius: 10px;
+}
+.looking_for_a_job_status_false{
+	color: darkred;
+	font-weight: bold;
+	background-color: lightcoral;
+	border: 2px solid darkred;
+	width: fit-content;
+	padding: 5px;
+	border-radius: 10px;
+}
+.contacts_flex_block{
+	display: flex;
+	justify-content: flex-end;
+}
+.contacts_block{
+	margin-top: 20px;
+	font-size: 18px;
+	font-weight: bold;
+	align-items: center;
+	background-color: white;
+	border-radius: 20px;
+	display: flex;
+	justify-content: flex-end;
+}
+.contact{
+	margin: 5px;
+}
+.contact img{
+	width: 45px;
 }
