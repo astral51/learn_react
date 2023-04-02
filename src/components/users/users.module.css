@@ -1,9 +1,60 @@
 
+.user_block{
+    background-color: rgb(166, 183, 250);
+    margin: 10px 20px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
 .userPhoto{
     width: 100px;
     height: 100px;
+    border-radius: 50px;
 }
 
 .selectedPage{
     font-weight: bold;
+}
+.photo_and_description_block{
+    display: flex;
+    /*align-content: center;*/
+}
+.description_and_name{
+    background-color: white;
+    align-self: center;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.name{
+    font-size: 18px;
+    font-weight: bold;
+}
+.followed_block{
+    border-radius: 20px;
+    margin-left: 13px;
+}
+.unfollow{
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+}
+.unfollow:hover{
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.follow{
+    background-color: rgb(100, 101, 155);
+    border-radius: 20px;
+    padding: 10px;
+    color: white;
+}
+.follow:hover{
+    background-color: rgb(110, 111, 165);
+}
+.page_numbers{
+    background-color: rgb(166, 183, 250);
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 20px;
 }

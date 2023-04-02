@@ -7,13 +7,13 @@ import {NavLink} from "react-router-dom";
 const Users = (props) => {
 	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 	let pages = [];
-	for (let i = 1; i <= 10; i++){
+	for (let i = 1; i <= 10; i++) {
 		pages.push(i);
 	}
 
 	return (
 		<div>
-			<div>
+			<div className={styles.page_numbers}>
 				{pages.map(p => {
 					return <span className={props.currentPage === p && styles.selectedPage}
 					             onClick={() => props.onPageChanged(p)}>-{p}-</span>
@@ -22,33 +22,28 @@ const Users = (props) => {
 				<span className={props.currentPage === pagesCount && styles.selectedPage}
 				      onClick={() => props.onPageChanged(pagesCount)}>-{pagesCount}-</span>
 			</div>
-			{/*<button onClick={getUsers}>Get users</button>*/}
-			{props.users.map(u => <div key={u.id}>
-				<span>
-					<div>
-						<NavLink to={'/profile/' + u.id}>
-							<img className={styles.userPhoto} src={u.photos.small != null ? u.photos.small : userPhoto}
-							     alt={'userPhoto'}/>
-						</NavLink>
+
+			{props.users.map(u =>
+				<div className={styles.user_block} key={u.id}>
+					<div className={styles.photo_and_description_block}>
+						<div>
+							<NavLink to={'/profile/' + u.id}>
+								<img className={styles.userPhoto} src={u.photos.small != null ? u.photos.small : userPhoto}
+								     alt={'userPhoto'}/>
+							</NavLink>
+						</div>
+						<div className={styles.description_and_name}>
+							<div className={styles.name}>{u.name}</div>
+							<div>{u.status}</div>
+						</div>
 					</div>
-					<div>
+					<div className={styles.followed_block}>
 						{u.followed
-							? <button onClick={() => props.unfollow(u.id)}>unfollow</button>
-							: <button onClick={() => props.follow(u.id)}>follow</button>
+							? <button className={styles.unfollow} onClick={() => props.unfollow(u.id)}>unfollow</button>
+							: <button className={styles.follow}  onClick={() => props.follow(u.id)}>follow</button>
 						}
 					</div>
-				</span>
-				<span>
-					<span>
-						<div>{u.name}</div>
-						<div>{u.status}</div>
-					</span>
-					<span>
-						{/*<div>{u.location.country}</div>*/}
-						{/*<div>{u.location.city}</div>*/}
-					</span>
-				</span>
-			</div>)}
+				</div>)}
 		</div>
 	);
 };
