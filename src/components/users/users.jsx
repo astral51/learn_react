@@ -2,7 +2,6 @@ import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user.jpg";
 import React from "react";
 import {NavLink} from "react-router-dom";
-import {userAPI} from "../../api/api";
 
 
 const Users = (props) => {
@@ -40,22 +39,11 @@ const Users = (props) => {
 					</div>
 					<div className={styles.followed_block}>
 						{u.followed
-							? <button className={styles.unfollow} onClick={() => {
-								userAPI.unfollow(u.id).then(data => {
-									if (data.resultCode === 0){
-										props.unfollow(u.id);
-									}
-								});
+							? <button className={styles.unfollow} disabled={props.followingInProgress.some(id => id === u.id)}
+							          onClick={() => { props.unfollow(u.id); }}>unfollow</button>
 
-							}}>unfollow</button>
-
-							: <button className={styles.follow}  onClick={() => {
-								userAPI.follow(u.id).then(data => {
-									if (data.resultCode === 0){
-										props.follow(u.id);
-									}
-								});
-							}}>follow</button>
+							: <button className={styles.follow} disabled={props.followingInProgress.some(id => id === u.id)}
+							          onClick={() => { props.follow(u.id); }}>follow</button>
 						}
 					</div>
 				</div>)}
