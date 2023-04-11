@@ -7,6 +7,7 @@ import instagram_logo from "../../../assets/icons/instagram.png";
 import youtube_logo from "../../../assets/icons/youtube.png";
 import github_logo from "../../../assets/icons/github.png";
 import website_logo from "../../../assets/icons/website.png";
+import defaultUserPhoto from "../../../assets/images/user.jpg";
 
 const ProfileInfo = (props) => {
 	if (!props.profile){
@@ -16,7 +17,7 @@ const ProfileInfo = (props) => {
 		<div className={s.description_block}>
 			<div className={s.photo_and_description_block}>
 				<div className={s.photo}>
-					<img src={props.profile.photos.large} alt={'avatar'}/>
+					<img src={props.profile.photos.large ? props.profile.photos.large : defaultUserPhoto} alt={'avatar'}/>
 				</div>
 				<div className={s.description}>
 					<div className={s.full_name}>{props.profile.fullName}</div>

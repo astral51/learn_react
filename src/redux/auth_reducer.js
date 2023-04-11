@@ -1,7 +1,7 @@
+import {authAPI} from "../api/api";
+
 const SET_USER_DATA = 'SET_USER_DATA';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-
-
 
 let initialState = {
 	id: null,
@@ -38,5 +38,17 @@ export const toggleIsFetching = (isFetching) => ({
 	type: TOGGLE_IS_FETCHING,
 	isFetching: isFetching,
 });
+
+
+export const getAuthUserDataThunk = () => {
+	return (dispatch) => {
+		authAPI.me().then(data => {
+			if (data.resultCode === 0){
+				let {id, login, email} = data.data;
+				dispatch(setAuthUserData(id, email, login));
+			}
+		});
+	}
+}
 
 export default authReducer;

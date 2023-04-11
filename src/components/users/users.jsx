@@ -40,10 +40,10 @@ const Users = (props) => {
 					<div className={styles.followed_block}>
 						{u.followed
 							? <button className={styles.unfollow} disabled={props.followingInProgress.some(id => id === u.id)}
-							          onClick={() => { props.unfollow(u.id); }}>unfollow</button>
+							          onClick={() => { props.unfollowThunk(u.id); }}>unfollow</button>
 
 							: <button className={styles.follow} disabled={props.followingInProgress.some(id => id === u.id)}
-							          onClick={() => { props.follow(u.id); }}>follow</button>
+							          onClick={() => { props.followThunk(u.id); }}>follow</button>
 						}
 					</div>
 				</div>)}
