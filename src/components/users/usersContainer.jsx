@@ -8,6 +8,8 @@ import {
 import React from "react";
 import Users from "./users";
 import Preloader from "../common/preloader/preloader";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 class UsersContainer extends React.Component {
 	componentDidMount() {
@@ -55,4 +57,8 @@ let mapDispatchToProps = {
 		getUsersThunk,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+
+export default compose(
+	connect(mapStateToProps, mapDispatchToProps),
+	withAuthRedirect
+)(UsersContainer);
