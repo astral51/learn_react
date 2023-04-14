@@ -5,15 +5,17 @@ import {connect} from "react-redux";
 
 let mapStateToPropsForRedirect = (state) => ({
 	isAuth: state.auth.isAuth,
+	// isFetching: state.auth.isFetching,
 });
 
 export const withAuthRedirect = (Component) => {
 	class RedirectComponent extends React.Component {
-		render(){
-			if (!this.props.isAuth) return <Navigate to={'/login'} />
-			return <Component {...this.props} />
+		render() {
+				if (!this.props.isAuth) return <Navigate to={'/login'}/>
+				return <Component {...this.props} />
 		}
 	}
+
 
 	return connect(mapStateToPropsForRedirect)(RedirectComponent);
 }

@@ -1,10 +1,11 @@
 import React from 'react';
 import Profile from "./profile";
 import {connect} from "react-redux";
-import {getUserProfileThunk} from "../../redux/profile_reducer";
+import {getStatus, getUserProfileThunk, updateStatus} from "../../redux/profile_reducer";
 import {useParams} from 'react-router-dom';
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {getAuthUserDataThunk} from "../../redux/auth_reducer";
 
 export function withRouter(Children) {
 	return (props) => {
@@ -19,20 +20,30 @@ class ProfileContainer extends React.Component {
 		let userId = this.props.match.params.userId;
 		if (!userId) userId = 2;
 		this.props.getUserProfileThunk(userId);
+		this.props.getStatus(userId);
+		// this.props.getAuthUserDataThunk();
 	}
 
 	render() {
-		return (<Profile {...this.props} profile={this.props.profile}/>)
+		return (
+			<>
+				<Profile {...this.props}/>
+			</>
+	)
 	}
 }
 
 
 let mapStateToProps = (state) => ({
 	profile: state.profilePage.profile,
+	status: state.profilePage.status,
 });
 
 let mapDispatchToProps = {
 	getUserProfileThunk,
+	getStatus,
+	updateStatus,
+	getAuthUserDataThunk,
 };
 
 export default compose(

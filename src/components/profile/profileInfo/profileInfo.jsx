@@ -8,6 +8,7 @@ import youtube_logo from "../../../assets/icons/youtube.png";
 import github_logo from "../../../assets/icons/github.png";
 import website_logo from "../../../assets/icons/website.png";
 import defaultUserPhoto from "../../../assets/images/user.jpg";
+import ProfileStatus from "./profileStatus";
 
 const ProfileInfo = (props) => {
 	if (!props.profile){
@@ -21,6 +22,7 @@ const ProfileInfo = (props) => {
 				</div>
 				<div className={s.description}>
 					<div className={s.full_name}>{props.profile.fullName}</div>
+					<ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
 					<div>{props.profile.aboutMe}</div>
 					<div className={s.separator}></div>
 					{props.profile.lookingForAJob
