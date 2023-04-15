@@ -45,11 +45,9 @@ export const getAuthUserDataThunk = () => {
 		// dispatch(toggleIsFetching(true));
 		authAPI.me().then(data => {
 			if (data.resultCode === 0){
-				debugger;
 				let {id, login, email} = data.data;
 				dispatch(setAuthUserData(id, email, login));
 			}
-			debugger;
 			// dispatch(toggleIsFetching(false));
 		});
 	}

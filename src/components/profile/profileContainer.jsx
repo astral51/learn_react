@@ -18,7 +18,7 @@ export function withRouter(Children) {
 class ProfileContainer extends React.Component {
 	componentDidMount() {
 		let userId = this.props.match.params.userId;
-		if (!userId) userId = 2;
+		if (!userId) userId = 28637;
 		this.props.getUserProfileThunk(userId);
 		this.props.getStatus(userId);
 		// this.props.getAuthUserDataThunk();
@@ -43,11 +43,11 @@ let mapDispatchToProps = {
 	getUserProfileThunk,
 	getStatus,
 	updateStatus,
-	getAuthUserDataThunk,
+	// getAuthUserDataThunk,
 };
 
 export default compose(
 	connect(mapStateToProps, mapDispatchToProps),
 	withRouter,
-	withAuthRedirect
+	// withAuthRedirect,
 )(ProfileContainer);
