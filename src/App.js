@@ -9,30 +9,54 @@ import UsersContainer from "./components/users/usersContainer";
 import ProfileContainer from "./components/profile/profileContainer";
 import HeaderContainer from "./components/header/headerContainer";
 import Login from "./components/login/login";
+import react from "react";
+import {connect} from "react-redux";
+import {compose} from "redux";
+import {withRouter} from "./hoc/withRouter";
+import {initializeAppThunk} from "./redux/app_reducer";
+import Preloader from "./components/common/preloader/preloader";
 
-function App() {
-	return (
-		<div className='app-wrapper'>
-			<HeaderContainer />
-			<Nav />
-			<div className='app-wrapper-content block-wrapper'>
-				<Routes>
-					<Route path="/dialogs/*"
-						element={<DialogsContainer />}/>
-					<Route path="/profile/:userId?"
-						element={<ProfileContainer />} />
-					<Route path="/users"
-					       element={<UsersContainer />} />
-					<Route path="/login"
-					       element={<Login />} />
-					<Route path="/news" element={<News />} />
-					<Route path="/music" element={<Music />} />
-					<Route path="/settings" element={<Settings />} />
-				</Routes>
+class App extends react.Component{
+
+	componentDidMount() {
+		this.props.initializeAppThunk();
+	}
+
+	render() {
+		if (!this.props.initialized) return <Preloader />
+		return (
+			<div className='app-wrapper'>
+				<HeaderContainer/>
+				<Nav/>
+				<div className='app-wrapper-content block-wrapper'>
+					<Routes>
+						<Route path="/dialogs/*"
+						       element={<DialogsContainer/>}/>
+						<Route path="/profile/:userId?"
+						       element={<ProfileContainer/>}/>
+						<Route path="/users"
+						       element={<UsersContainer/>}/>
+						<Route path="/login"
+						       element={<Login/>}/>
+						<Route path="/news" element={<News/>}/>
+						<Route path="/music" element={<Music/>}/>
+						<Route path="/settings" element={<Settings/>}/>
+					</Routes>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	}
+
 }
 
+const mapStateToProps = (state) => ({
+	initialized: state.app.initialized
+});
+const mapDispatchToProps = {
+	initializeAppThunk,
+};
 
-export default App;
+export default compose(
+	connect(mapStateToProps, mapDispatchToProps),
+	withRouter,
+)(App);

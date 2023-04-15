@@ -2,18 +2,10 @@ import React from 'react';
 import Profile from "./profile";
 import {connect} from "react-redux";
 import {getStatus, getUserProfileThunk, updateStatus} from "../../redux/profile_reducer";
-import {useParams} from 'react-router-dom';
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
-import {getAuthUserDataThunk} from "../../redux/auth_reducer";
+import {withRouter} from "../../hoc/withRouter";
 
-export function withRouter(Children) {
-	return (props) => {
-
-		const match = {params: useParams()};
-		return <Children {...props} match={match}/>
-	}
-}
 
 class ProfileContainer extends React.Component {
 	componentDidMount() {
@@ -21,7 +13,6 @@ class ProfileContainer extends React.Component {
 		if (!userId) userId = 28637;
 		this.props.getUserProfileThunk(userId);
 		this.props.getStatus(userId);
-		// this.props.getAuthUserDataThunk();
 	}
 
 	render() {
@@ -43,11 +34,10 @@ let mapDispatchToProps = {
 	getUserProfileThunk,
 	getStatus,
 	updateStatus,
-	// getAuthUserDataThunk,
 };
 
 export default compose(
 	connect(mapStateToProps, mapDispatchToProps),
 	withRouter,
-	// withAuthRedirect,
+	withAuthRedirect,
 )(ProfileContainer);
