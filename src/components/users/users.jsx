@@ -14,12 +14,12 @@ const Users = (props) => {
 	return (
 		<div>
 			<div className={styles.page_numbers}>
-				{pages.map(p => {
-					return <span className={props.currentPage === p && styles.selectedPage}
-					             onClick={() => props.onPageChanged(p)}>-{p}-</span>
+				{pages.map((p, i) => {
+					return <span className={props.currentPage === p ? styles.selectedPage : undefined}
+					             onClick={() => props.onPageChanged(p)} key={i}>-{p}-</span>
 				})}
 				<span>...</span>
-				<span className={props.currentPage === pagesCount && styles.selectedPage}
+				<span className={props.currentPage === pagesCount ? styles.selectedPage : undefined}
 				      onClick={() => props.onPageChanged(pagesCount)}>-{pagesCount}-</span>
 			</div>
 

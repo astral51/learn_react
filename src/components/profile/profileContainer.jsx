@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Profile from "./profile";
 import {connect} from "react-redux";
 import {getStatus, getUserProfileThunk, updateStatus} from "../../redux/profile_reducer";
@@ -7,21 +7,20 @@ import {compose} from "redux";
 import {withRouter} from "../../hoc/withRouter";
 
 
-class ProfileContainer extends React.Component {
-	componentDidMount() {
-		let userId = this.props.match.params.userId;
-		if (!userId) userId = 28637;
-		this.props.getUserProfileThunk(userId);
-		this.props.getStatus(userId);
-	}
+const ProfileContainer = (props) => {
 
-	render() {
-		return (
-			<>
-				<Profile {...this.props}/>
-			</>
+	useEffect(() => {
+		// console.log('1');
+		let userId = props.match.params.userId;
+		if (!userId) userId = 28637;
+		props.getUserProfileThunk(userId);
+		props.getStatus(userId);
+	}, []);
+
+
+	return (
+		<Profile {...props}/>
 	)
-	}
 }
 
 

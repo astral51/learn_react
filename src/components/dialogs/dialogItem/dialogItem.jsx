@@ -5,7 +5,7 @@ const DialogItem = (props) => {
 	return (
 		<div className={s.dialog}>
 			<NavLink 
-				className={dialogData => dialogData.isActive ? s.active : s.nonActive}
+				className={dialogData => dialogData.isActive ? s.active : undefined}
 				to={"/dialogs/" + props.id}>
 				<div className={s.dialog_link_wrapper}>
 					<img src="https://cdn.onlinewebfonts.com/svg/download_415637.png" alt="none" />

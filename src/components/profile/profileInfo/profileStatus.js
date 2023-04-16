@@ -30,7 +30,7 @@ const ProfileStatus = (props) => {
 				:
 				<div>
 					<input onChange={onStatusChange} autoFocus={true} onBlur={deactivateEditMode}
-					       value={status}/>
+					       value={status ? status : ''}/>
 				</div>
 			}
 		</div>

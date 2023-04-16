@@ -7,8 +7,8 @@ import {Navigate} from "react-router-dom";
 
 const Dialogs = (props) => {
 
-	let dialogsElements = props.dialogs.map((elem) => <DialogItem id={elem.id} name={elem.name} />);
-	let messagesElements = props.messages.map(elem => <Message id={elem.id} message={elem.message} />);
+	let dialogsElements = props.dialogs.map(elem => <DialogItem id={elem.id} name={elem.name} key={elem.id}/>);
+	let messagesElements = props.messages.map(elem => <Message id={elem.id} message={elem.message} key={elem.id}/>);
 	let newMessageBody = props.newMessageBody;
 
 	const onNewMessageChange = (event) => {
