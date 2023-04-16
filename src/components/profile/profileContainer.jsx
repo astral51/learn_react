@@ -10,7 +10,6 @@ import {withRouter} from "../../hoc/withRouter";
 const ProfileContainer = (props) => {
 
 	useEffect(() => {
-		// console.log('1');
 		let userId = props.match.params.userId;
 		if (!userId) userId = 28637;
 		props.getUserProfileThunk(userId);

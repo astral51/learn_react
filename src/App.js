@@ -9,48 +9,47 @@ import UsersContainer from "./components/users/usersContainer";
 import ProfileContainer from "./components/profile/profileContainer";
 import HeaderContainer from "./components/header/headerContainer";
 import Login from "./components/login/login";
-import react from "react";
+import {useEffect} from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {withRouter} from "./hoc/withRouter";
 import {initializeAppThunk} from "./redux/app_reducer";
 import Preloader from "./components/common/preloader/preloader";
 
-class App extends react.Component{
+const App = (props) => {
 
-	componentDidMount() {
-		this.props.initializeAppThunk();
-	}
+	useEffect(() => {
+		props.initializeAppThunk();
+	}, []);
 
-	render() {
-		if (!this.props.initialized) return <Preloader />
-		return (
-			<div className='app-wrapper'>
-				<HeaderContainer/>
-				<Nav/>
-				<div className='app-wrapper-content block-wrapper'>
-					<Routes>
-						<Route path="/dialogs/*"
-						       element={<DialogsContainer/>}/>
-						<Route path="/profile/:userId?"
-						       element={<ProfileContainer/>}/>
-						<Route path="/users"
-						       element={<UsersContainer/>}/>
-						<Route path="/login"
-						       element={<Login/>}/>
-						<Route path="/news" element={<News/>}/>
-						<Route path="/music" element={<Music/>}/>
-						<Route path="/settings" element={<Settings/>}/>
-					</Routes>
-				</div>
+
+	if (!props.initialized) return <Preloader/>
+	return (
+		<div className='app-wrapper'>
+			<HeaderContainer/>
+			<Nav/>
+			<div className='app-wrapper-content block-wrapper'>
+				<Routes>
+					<Route path="/dialogs/*"
+					       element={<DialogsContainer/>}/>
+					<Route path="/profile/:userId?"
+					       element={<ProfileContainer/>}/>
+					<Route path="/users"
+					       element={<UsersContainer/>}/>
+					<Route path="/login"
+					       element={<Login/>}/>
+					<Route path="/news" element={<News/>}/>
+					<Route path="/music" element={<Music/>}/>
+					<Route path="/settings" element={<Settings/>}/>
+				</Routes>
 			</div>
-		);
-	}
+		</div>
+	);
 
 }
 
 const mapStateToProps = (state) => ({
-	initialized: state.app.initialized
+	initialized: state.app.initialized,
 });
 const mapDispatchToProps = {
 	initializeAppThunk,

@@ -2,13 +2,10 @@ import React from 'react';
 import Header from "./header";
 import {connect} from "react-redux";
 
-class HeaderContainer extends React.Component{
-
-	render(){
-		return (
-			<Header {...this.props} />
-		);
-	}
+const HeaderContainer = (props) => {
+	return (
+		<Header {...props} />
+	);
 }
 
 const mapStateToProps = (state) => ({
