@@ -1,7 +1,5 @@
-import React from 'react';
 import s from './myPosts.module.css';
 import Post from './post/post';
-
 
 
 const MyPosts = (props) => {
@@ -37,8 +35,8 @@ const MyPosts = (props) => {
 				<div className={s.new_add_post_wrapper}>
 					<div>
 						<textarea className={s.new_post_textarea}
-							onChange={onPostChange}
-							value={newPostElement}
+						          onChange={onPostChange}
+						          value={newPostElement}
 						/>
 					</div>
 					<div>

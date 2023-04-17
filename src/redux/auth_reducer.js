@@ -28,13 +28,12 @@ export const setAuthUserData = (userId, email, login) => ({
 });
 
 
-export const getAuthUserDataThunk = () => (dispatch) => {
-	return authAPI.me().then(data => {
+export const getAuthUserDataThunk = () =>  async (dispatch) => {
+	let data = await authAPI.me();
 		if (data.resultCode === 0) {
 			let {id, login, email} = data.data;
 			dispatch(setAuthUserData(id, email, login));
 		}
-	});
 }
 
 export default authReducer;
