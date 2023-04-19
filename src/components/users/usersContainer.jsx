@@ -7,7 +7,6 @@ import {
 } from "../../redux/users_reducer";
 import React, {useEffect} from "react";
 import Users from "./users";
-import Preloader from "../common/preloader/preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import {
@@ -31,7 +30,6 @@ const UsersContainer = (props) => {
 	}
 
 	return <>
-		{props.isFetching ? <Preloader/> : null}
 		<Users
 			totalUsersCount={props.totalUsersCount}
 			pageSize={props.pageSize}
@@ -41,6 +39,7 @@ const UsersContainer = (props) => {
 			followThunk={props.followThunk}
 			onPageChanged={onPageChanged}
 			followingInProgress={props.followingInProgress}
+			isFetching={props.isFetching}
 		/>
 	</>
 }

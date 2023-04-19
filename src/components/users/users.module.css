@@ -12,9 +12,6 @@
     border-radius: 50px;
 }
 
-.selectedPage{
-    font-weight: bold;
-}
 .photo_and_description_block{
     display: flex;
     /*align-content: center;*/
@@ -51,10 +48,4 @@
 }
 .follow:hover{
     background-color: rgb(110, 111, 165);
-}
-.page_numbers{
-    background-color: rgb(166, 183, 250);
-    padding: 20px;
-    border-radius: 20px 20px 0 0;
-    margin-bottom: 20px;
 }

@@ -1,0 +1,22 @@
+.selectedPage{
+    font-weight: bold;
+    background-color: rgb(101, 99, 239);
+    border-radius: 20px;
+}
+
+.page_numbers{
+    background-color: rgb(166, 183, 250);
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+    margin-bottom: 20px;
+}
+
+.page_number{
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+.page_number:hover{
+    background-color: rgb(186, 203, 250);
+    border-radius: 20px;
+}

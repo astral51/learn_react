@@ -25,9 +25,10 @@ export const initializedSuccess = () => ({
 
 
 export const initializeAppThunk = () => (dispatch) => {
-	let promise = dispatch(getAuthUserDataThunk());
+	let authUsersData = dispatch(getAuthUserDataThunk());
+	// let users = dispatch(getUsersThunk());
 
-	Promise.all([promise]).then(() => {
+	Promise.all([authUsersData]).then(() => {
 		dispatch(initializedSuccess());
 	})
 }
