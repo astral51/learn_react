@@ -4,17 +4,20 @@ import Nav from './components/nav/nav';
 import News from './components/news/news';
 import Music from './components/music/music';
 import Settings from './components/settings/settings';
-import DialogsContainer from "./components/dialogs/dialogsContainer";
 import UsersContainer from "./components/users/usersContainer";
 import ProfileContainer from "./components/profile/profileContainer";
 import HeaderContainer from "./components/header/headerContainer";
 import Login from "./components/login/login";
-import {useEffect} from "react";
+import react, {useEffect, Suspense} from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {withRouter} from "./hoc/withRouter";
 import {initializeAppThunk} from "./redux/app_reducer";
 import Preloader from "./components/common/preloader/preloader";
+
+
+// import DialogsContainer from "./components/dialogs/dialogsContainer";
+const DialogsContainer = react.lazy(() => import('./components/dialogs/dialogsContainer'));
 
 const App = (props) => {
 
@@ -30,8 +33,11 @@ const App = (props) => {
 			<Nav/>
 			<div className='app-wrapper-content block-wrapper'>
 				<Routes>
-					<Route path="/dialogs/*"
-					       element={<DialogsContainer/>}/>
+					<Route path='/dialogs/*' element={
+						<Suspense fallback={<div><Preloader/></div>}>
+							<DialogsContainer/>
+						</Suspense>
+					}/>
 					<Route path="/profile/:userId?"
 					       element={<ProfileContainer/>}/>
 					<Route path="/users"

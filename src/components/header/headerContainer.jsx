@@ -1,10 +1,16 @@
 import React from 'react';
 import Header from "./header";
 import {connect} from "react-redux";
+import {logoutThunk} from "../../redux/auth_reducer";
 
 const HeaderContainer = (props) => {
+
+	const onLogout = () => {
+		props.logoutThunk();
+	}
+
 	return (
-		<Header {...props} />
+		<Header {...props} onLogout={onLogout}/>
 	);
 }
 
@@ -13,7 +19,7 @@ const mapStateToProps = (state) => ({
 	login: state.auth.login,
 });
 const mapDispatchToProps = {
-	// getAuthUserDataThunk,
+	logoutThunk,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

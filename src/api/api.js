@@ -9,41 +9,56 @@ const instance = axios.create({
 });
 
 export const userAPI = {
-
 	async getUsers(currentPage, pageSize) {
 		const response = await instance.get(`users?page=${currentPage}&count=${pageSize}`);
 		return response.data;
 	},
 
 	async follow(userId){
-		const response = await instance.post(`/follow/${userId}`, {})
+		const response = await instance.post(`/follow/${userId}`, {});
 		return response.data;
 	},
 
 	async unfollow(userId){
-		const response = await instance.delete(`/follow/${userId}`)
+		const response = await instance.delete(`/follow/${userId}`);
 		return response.data;
 	},
 }
+
+
 
 export const profileAPI = {
 	async getProfile(userId){
-		const response = await instance.get(`profile/${userId}`)
+		const response = await instance.get(`profile/${userId}`);
 		return response.data;
 	},
+
 	async getStatus(userId){
-		const response = await instance.get(`profile/status/${userId}`)
+		const response = await instance.get(`profile/status/${userId}`);
 		return response.data;
 	},
+
 	async updateStatus(status){
-		const response = await instance.put(`profile/status/`, { status: status })
+		const response = await instance.put(`profile/status/`, { status: status });
 		return response.data;
 	}
 }
 
+
+
 export const authAPI = {
 	async me(){
-		const response = await instance.get(`auth/me`)
+		const response = await instance.get(`auth/me`);
 		return response.data;
-	}
+	},
+
+	async login(email, password, rememberMe = false){
+		const response = await instance.post(`auth/login`, {email, password, rememberMe});
+		return response.data;
+	},
+
+	async logout(){
+		const response = await instance.delete(`auth/login`);
+		return response.data;
+	},
 }
