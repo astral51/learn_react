@@ -2,26 +2,43 @@ import React from 'react';
 import DialogItem from './dialogItem/dialogItem';
 import s from './dialogs.module.css';
 import Message from './message/message';
-import {Navigate} from "react-router-dom";
+import {useForm} from "react-hook-form";
+
+
+const DialogsForm = (props) => {
+
+	const { register, handleSubmit, resetField } = useForm();
+
+	function onSubmit(data){
+		props.sendMessage(data.newText);
+		resetField('newText');
+	}
+
+	return (
+		<div>
+			<form className={s.new_message_wrapper} onSubmit={handleSubmit(onSubmit)}>
+				<div>
+						<input
+							className={s.new_message_input}
+							placeholder={'Enter your message...'}
+							{...register('newText')}
+						/>
+				</div>
+
+				<button className={s.send_new_message_button} type="submit">
+					Send
+				</button>
+
+			</form>
+		</div>
+	);
+}
+
 
 
 const Dialogs = (props) => {
-
 	let dialogsElements = props.dialogs.map(elem => <DialogItem id={elem.id} name={elem.name} key={elem.id}/>);
 	let messagesElements = props.messages.map(elem => <Message id={elem.id} message={elem.message} key={elem.id}/>);
-	let newMessageBody = props.newMessageBody;
-
-	const onNewMessageChange = (event) => {
-		let text = event.target.value;
-		props.updateNewMessageBody(text);
-	}
-	const onSendMessageClick = () => {
-		props.sendMessage();
-	};
-
-	if (props.isAuth === false){
-		return <Navigate to={'/login'}/>
-	}
 
 	return (
 		<div className={s.dialogs}>
@@ -34,17 +51,7 @@ const Dialogs = (props) => {
 				<div className={s.messages}>
 					{messagesElements}
 				</div>
-				<div className={s.new_message_wrapper}>
-					<div>
-						<textarea 
-							className={s.new_message_textarea} 
-							value={newMessageBody}
-							onChange={onNewMessageChange}
-							placeholder={'Enter your message...'}>
-						</textarea>
-					</div>					
-						<button className={s.send_new_message_button} onClick={onSendMessageClick}>send</button>
-				</div>
+				<DialogsForm sendMessage={props.sendMessage}/>
 			</div>
 
 		</div>
