@@ -22,6 +22,7 @@ const LoginForm = (props) => {
 
 	return (
 		<div className={style.container}>
+			<h2>Log in</h2>
 			{!authAccept
 				&& <div className={style.error}>Incorrect login or password</div>
 			}
@@ -88,8 +89,12 @@ const Login = (props) => {
 
 	return (
 		<div className={style.login_page_container}>
-			<h2>Log in</h2>
 			<LoginForm onSubmit={onSubmit}/>
+			<div className={style.free_account}>
+				<div>test account:</div>
+				<div>login: lenkindev@gmail.com</div>
+				<div>password: lenkindev671</div>
+			</div>
 		</div>
 	);
 };

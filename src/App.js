@@ -38,6 +38,8 @@ const App = (props) => {
 							<DialogsContainer/>
 						</Suspense>
 					}/>
+					<Route path="/"
+					       element={<ProfileContainer/>}/>
 					<Route path="/profile/:userId?"
 					       element={<ProfileContainer/>}/>
 					<Route path="/users"

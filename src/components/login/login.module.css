@@ -1,5 +1,10 @@
 .login_page_container{
     margin: 30px;
+    display: flex;
+    align-items: center;
+}
+.free_account{
+    margin-left: 50px;
 }
 
 .container{
